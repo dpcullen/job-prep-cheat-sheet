@@ -1,0 +1,553 @@
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #1a2744;
+  --navy-light: #2a3f6a;
+  --blue: #3b82f6;
+  --blue-light: #dbeafe;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --white: #ffffff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  line-height: 1.6;
+}
+
+/* ============================================
+   ACCESS GATE
+   ============================================ */
+.gate-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.gate-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+}
+
+.gate-logo {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.gate-card h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.gate-subtitle {
+  color: var(--gray-500);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+#access-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#access-input {
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+#access-input:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.error-text {
+  color: var(--red);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-primary:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+}
+
+.btn-ghost:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 16px;
+}
+
+/* ============================================
+   APP LAYOUT
+   ============================================ */
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.app-header {
+  padding: 20px 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ============================================
+   INPUT SECTION
+   ============================================ */
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.help-text {
+  color: var(--gray-500);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+#job-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+#job-input:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.input-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+/* ============================================
+   ERROR
+   ============================================ */
+.error-card {
+  border-left: 4px solid var(--red);
+  margin-top: 24px;
+}
+
+.error-card h3 {
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.error-card p {
+  color: var(--gray-700);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* ============================================
+   OUTPUT ACTIONS
+   ============================================ */
+.output-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   CHEAT SHEET
+   ============================================ */
+.cheat-sheet {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.cs-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 28px 32px;
+}
+
+.cs-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.cs-role {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.cs-company {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.cs-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cs-date {
+  display: block;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.cs-branding {
+  display: block;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+
+.cs-section {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.cs-section:last-of-type {
+  border-bottom: none;
+}
+
+.cs-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--blue);
+  display: inline-block;
+}
+
+.cs-subsection-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.cs-content {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+
+.cs-content p {
+  margin-bottom: 8px;
+}
+
+.cs-content p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.cs-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cs-list li {
+  font-size: 14px;
+  color: var(--gray-700);
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.cs-list li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.cs-highlight-list li::before {
+  content: "✓";
+  color: var(--green);
+  font-size: 13px;
+}
+
+/* Questions styling */
+.cs-question-group {
+  margin-bottom: 14px;
+}
+
+.cs-question-group:last-child {
+  margin-bottom: 0;
+}
+
+.cs-question {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.cs-question-tip {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+.cs-footer {
+  padding: 16px 32px;
+  background: var(--gray-50);
+  text-align: center;
+}
+
+.cs-footer p {
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    font-size: 11px;
+  }
+
+  .app-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .cheat-sheet {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .cs-header {
+    padding: 20px 24px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cs-role {
+    font-size: 18px;
+  }
+
+  .cs-company {
+    font-size: 13px;
+  }
+
+  .cs-section {
+    padding: 14px 24px;
+    page-break-inside: avoid;
+  }
+
+  .cs-section-title {
+    font-size: 12px;
+    margin-bottom: 6px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cs-content,
+  .cs-list li {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .cs-list li {
+    padding: 2px 0 2px 16px;
+  }
+
+  .cs-question {
+    font-size: 12px;
+  }
+
+  .cs-question-tip {
+    font-size: 11px;
+  }
+
+  .cs-footer {
+    padding: 10px 24px;
+  }
+
+  .output-actions {
+    display: none;
+  }
+
+  #input-section,
+  #loading-section,
+  #error-section {
+    display: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .cs-header-top {
+    flex-direction: column;
+  }
+
+  .cs-meta {
+    text-align: left;
+  }
+
+  .cs-two-col {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cs-section {
+    padding: 16px 20px;
+  }
+
+  .cs-header {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .input-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Prep Cheat Sheet</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Access Gate -->
+  <div id="access-gate" class="gate-overlay">
+    <div class="gate-card">
+      <div class="gate-logo">📋</div>
+      <h1 id="gate-title">Job Prep Cheat Sheet</h1>
+      <p class="gate-subtitle">Enter your access code to continue</p>
+      <form id="access-form">
+        <input type="password" id="access-input" placeholder="Access code" autocomplete="off" required>
+        <button type="submit" class="btn btn-primary">Enter</button>
+      </form>
+      <p id="access-error" class="error-text" hidden>Invalid access code. Please try again.</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app-container" hidden>
+    <!-- Header -->
+    <header class="app-header no-print">
+      <div class="header-content">
+        <h1 id="app-title">📋 Job Prep Cheat Sheet</h1>
+        <button id="logout-btn" class="btn btn-ghost">Logout</button>
+      </div>
+    </header>
+
+    <!-- Input Section -->
+    <section id="input-section" class="input-section no-print">
+      <div class="card">
+        <h2>Paste a Job Description</h2>
+        <p class="help-text">Copy and paste the full job description text below. Include as much detail as possible for the best results.</p>
+        <textarea id="job-input" rows="10" placeholder="Paste the full job description here...&#10;&#10;Tip: Copy everything from the job posting — title, company, responsibilities, qualifications, and any other details."></textarea>
+        <div class="input-actions">
+          <button id="generate-btn" class="btn btn-primary btn-lg">Generate Cheat Sheet</button>
+          <button id="clear-btn" class="btn btn-ghost">Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <section id="loading-section" hidden>
+      <div class="loading-container">
+        <div class="spinner"></div>
+        <p>Analyzing job description and building your cheat sheet...</p>
+        <p class="help-text">This typically takes 10-20 seconds</p>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <div id="error-section" class="card error-card" hidden>
+      <h3>Something went wrong</h3>
+      <p id="error-message"></p>
+      <button id="retry-btn" class="btn btn-primary">Try Again</button>
+    </div>
+
+    <!-- Cheat Sheet Output -->
+    <section id="output-section" hidden>
+      <div class="output-actions no-print">
+        <button id="print-btn" class="btn btn-primary">🖨️ Print / Save as PDF</button>
+        <button id="new-btn" class="btn btn-ghost">+ New Cheat Sheet</button>
+      </div>
+
+      <div id="cheat-sheet" class="cheat-sheet">
+        <!-- Header -->
+        <div class="cs-header">
+          <div class="cs-header-top">
+            <div>
+              <h1 id="cs-role-title" class="cs-role"></h1>
+              <p id="cs-company-name" class="cs-company"></p>
+            </div>
+            <div class="cs-meta">
+              <span id="cs-date" class="cs-date"></span>
+              <span id="cs-branding" class="cs-branding"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Overview -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Company Overview</h2>
+          <div id="cs-company-overview" class="cs-content"></div>
+        </div>
+
+        <!-- Role Summary -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Role Summary</h2>
+          <div id="cs-role-summary" class="cs-content"></div>
+        </div>
+
+        <!-- Key Requirements -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Key Requirements</h2>
+          <div class="cs-two-col">
+            <div>
+              <h3 class="cs-subsection-title">Must-Haves</h3>
+              <ul id="cs-must-haves" class="cs-list"></ul>
+            </div>
+            <div>
+              <h3 class="cs-subsection-title">Nice-to-Haves</h3>
+              <ul id="cs-nice-to-haves" class="cs-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Intel -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Company Intel & Recent Developments</h2>
+          <div id="cs-company-intel" class="cs-content"></div>
+        </div>
+
+        <!-- What to Highlight -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Key Attributes to Highlight</h2>
+          <ul id="cs-highlights" class="cs-list cs-highlight-list"></ul>
+        </div>
+
+        <!-- Interview Prep -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Interview Questions to Prepare</h2>
+          <div id="cs-questions" class="cs-content"></div>
+        </div>
+
+        <!-- Talking Points -->
+        <div class="cs-section">
+          <h2 class="cs-section-title">Talking Points & Themes</h2>
+          <ul id="cs-talking-points" class="cs-list"></ul>
+        </div>
+
+        <!-- Compensation -->
+        <div id="cs-comp-section" class="cs-section">
+          <h2 class="cs-section-title">Compensation & Logistics</h2>
+          <div id="cs-compensation" class="cs-content"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="cs-footer">
+          <p id="cs-footer-text"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
