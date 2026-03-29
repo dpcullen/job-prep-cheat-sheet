@@ -48,6 +48,10 @@ body {
   z-index: 1000;
 }
 
+.gate-overlay[hidden] {
+  display: none;
+}
+
 .gate-card {
   background: var(--white);
   border-radius: 12px;
