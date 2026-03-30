@@ -12,7 +12,7 @@ const CONFIG = {
   ACCESS_CODE: "advisor2026",
 
   // Gemini model to use (free tier)
-  MODEL: "gemini-2.0-flash",
+  MODEL: "gemini-2.5-flash-preview-04-17",
 
   // Your business name (shown in header and cheat sheet)
   BUSINESS_NAME: "Career Advisory Group",

@@ -53,20 +53,8 @@
     accessError.hidden = true;
   }
 
-  if (checkAccess()) {
-    grantAccess();
-  }
-
-  accessForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (accessInput.value.trim() === CONFIG.ACCESS_CODE) {
-      grantAccess();
-    } else {
-      accessError.hidden = false;
-      accessInput.value = "";
-      accessInput.focus();
-    }
-  });
+  // Skip access gate — go straight to app
+  grantAccess();
 
   logoutBtn.addEventListener("click", revokeAccess);
 
