@@ -5,7 +5,7 @@
 const CONFIG = {
   // Your Google Gemini API key (free tier)
   // Get one at: https://aistudio.google.com/apikey
-  GEMINI_API_KEY: "YOUR_GEMINI_API_KEY_HERE",
+  GEMINI_API_KEY: "AIzaSyD2lBcbAK1dVbRD-obo14_SQhs5sF7lS7Y",
 
   // Access code your paying customers will use to access the tool
   // Change this to whatever you want to share with clients
